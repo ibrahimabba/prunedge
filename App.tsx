@@ -1,3 +1,4 @@
+import { StyleSheet, StatusBar as Bar } from "react-native";
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -13,10 +14,16 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+      <SafeAreaProvider style={styles.container}>
+        <Navigation colorScheme={'light'} />
       </SafeAreaProvider>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: Bar.currentHeight
+  },
+})
